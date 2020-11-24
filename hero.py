@@ -72,6 +72,10 @@ class Hero:
                 opponent.take_damage(self.attack())
         # 3) After each attack, check if either the hero (self) or the opponent is alive
         # 4) if one of them has died, print "HeroName won!" replacing HeroName with the name of the hero, and end the fight loop
+        if self.is_alive() == False:
+            print(f"{opponent.name} has killed {self.name}. {opponent.name} has won.")
+        elif opponent.is_alive() == False:
+            print(f"{opponent.name} has killed {self.name}. {opponent.name} has won.")
         pass
 
 ##############################################################
