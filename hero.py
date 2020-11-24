@@ -65,10 +65,14 @@ class Hero:
         if len(self.abilities) == 0 and len(opponent.abilities) == 0:
                 print("Draw")
         # 1) else, start the fighting loop until a hero has won
+        else:
         # 2) the hero (self) and their opponent must attack each other and each must take damage from the other's attack
+            while self.is_alive() == True and opponent.is_alive() == True:
+                self.take_damage(opponent.attack())
+                opponent.take_damage(self.attack())
         # 3) After each attack, check if either the hero (self) or the opponent is alive
         # 4) if one of them has died, print "HeroName won!" replacing HeroName with the name of the hero, and end the fight loop
-  pass
+        pass
 
 ##############################################################
 # Is Alive Method
