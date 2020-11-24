@@ -24,6 +24,25 @@ class Team:
                 foundHero = True
         if not foundHero:
             return 0
+
+##############################################################
+# Revive Hero
+##############################################################
+    def revive_heroes(self, health=100):
+    ''' Reset all heroes health to starting_health'''
+    # TODO: for each hero in self.heroes,
+    # set the hero's current_health to their starting_health
+    pass
+
+
+##############################################################
+# Stats
+##############################################################
+    def stats(self):
+        '''Print team statistics'''
+        for hero in self.heroes:
+            kd = hero.kills / hero.deaths
+            print("{} Kill/Deaths:{}".format(hero.name,kd))
     
 ##############################################################
 # View All Heroes

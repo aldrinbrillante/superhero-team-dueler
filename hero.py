@@ -13,6 +13,8 @@ class Hero:
         self.current_health = starting_health
         self.abilities = list()
         self.armors = list()
+        self.deaths = 0
+        self.kills = 0
         
 ##############################################################
 # Add ability
@@ -25,6 +27,20 @@ class Hero:
 ##############################################################   
     def add_armor(self, armor):
         self.armors.append(armor)
+
+##############################################################
+# Add death
+##############################################################  
+    def add_death(self, num_deaths):
+        ''' Update deaths with num_deaths'''
+        self.deaths += num_deaths
+
+##############################################################
+# Add kill
+############################################################## 
+    def add_kill(self, num_kills):
+        """Update self.kills by num_kills amount"""
+        self.kills += num_kills
 
 ##############################################################
 # Add weapon
@@ -82,12 +98,16 @@ class Hero:
             while self.is_alive() == True and opponent.is_alive() == True:
                 self.take_damage(opponent.attack())
                 opponent.take_damage(self.attack())
-        # 3) After each attack, check if either the hero (self) or the opponent is alive
-        # 4) if one of them has died, print "HeroName won!" replacing HeroName with the name of the hero, and end the fight loop
-        if self.is_alive() == False:
-            print(f"{opponent.name} has killed {self.name}. {opponent.name} has won.")
-        elif opponent.is_alive() == False:
-            print(f"{self.name} has killed {opponent.name}. {self.name} has won.")
+            # 3) After each attack, check if either the hero (self) or the opponent is alive
+            # 4) if one of them has died, print "HeroName won!" replacing HeroName with the name of the hero, and end the fight loop
+            if self.is_alive() == False:
+                opponent.add_kill(1)
+                self.add_death(1)
+                print(f"{opponent.name} has killed {self.name}. {opponent.name} has won.")
+            elif opponent.is_alive() == False:
+                self.add_kill(1)
+                opponent.add_death(1)
+                print(f"{self.name} has killed {opponent.name}. {self.name} has won.")
         
 
 ##############################################################
@@ -105,6 +125,9 @@ class Hero:
             return True
         else:
             return False
+
+
+
 
 ##############################################################
 # Take Damage
