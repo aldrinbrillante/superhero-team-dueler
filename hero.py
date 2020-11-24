@@ -56,8 +56,19 @@ class Hero:
 # Fight
 ##############################################################
     def fight(self, opponent):
-        winner = random.choice([self.name, opponent.name])
-        print(f'{winner} has won the fight!')
+        '''
+        Current Hero will take turns fighting the opponent hero passed in.
+        '''
+        # TODO: Fight each hero until a victor emerges.
+        # Phases to implement:
+        # 0) check if at least one hero has abilities. If no hero has abilities, print "Draw"
+        if len(self.abilities) == 0 and len(opponent.abilities) == 0:
+                print("Draw")
+        # 1) else, start the fighting loop until a hero has won
+        # 2) the hero (self) and their opponent must attack each other and each must take damage from the other's attack
+        # 3) After each attack, check if either the hero (self) or the opponent is alive
+        # 4) if one of them has died, print "HeroName won!" replacing HeroName with the name of the hero, and end the fight loop
+  pass
 
 ##############################################################
 # Is Alive Method
