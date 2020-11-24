@@ -1,3 +1,6 @@
+import random 
+from hero import Hero
+
 class Team:
 
 ##############################################################
@@ -38,8 +41,14 @@ class Team:
             random_hero = random.choice(living_heroes)
             random_opponent = random.choice(living_opponents)
             # 2) have the heroes fight each other (Hint: Use the fight method in the Hero class.)
-            # 3) update the list of living_heroes and living_opponents
-            # to reflect the result of the fight
+            random_hero.fight(random_opponent)
+            # 3) update the list of living_heroes and living_opponents to reflect the result of the fight
+            if random_hero.is_alive() == True:
+                living_opponents.remove(random_opponent)
+            elif random_opponent.if_alive() == True:
+                living_heroes.remove(random_hero)
+                
+            
 
 ##############################################################
 # Remove Hero
