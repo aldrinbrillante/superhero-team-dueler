@@ -29,7 +29,7 @@ class Hero:
 # Attack
 ##############################################################
     def attack(self):
-      # start our total out at 0
+      # start total = 0
       total_damage = 0
       # loop through all of our hero's abilities
       for ability in self.abilities:
@@ -75,8 +75,8 @@ class Hero:
         if self.is_alive() == False:
             print(f"{opponent.name} has killed {self.name}. {opponent.name} has won.")
         elif opponent.is_alive() == False:
-            print(f"{opponent.name} has killed {self.name}. {opponent.name} has won.")
-        pass
+            print(f"{self.name} has killed {opponent.name}. {self.name} has won.")
+        
 
 ##############################################################
 # Is Alive Method
@@ -116,9 +116,6 @@ class Hero:
 if __name__ == "__main__":
     # If you run this file from the terminal
     # this block is executed.
-    hero1 = Hero("Wonder Woman")
-    hero2 = Hero("Dumbledore")
-    #hero1.fight(hero2)
 
     my_hero = Hero("Grace Hopper", 200)
     # print(my_hero.name)
@@ -139,8 +136,20 @@ if __name__ == "__main__":
 
     hero = Hero("Grace Hopper", 200)
     hero.take_damage(150)
-    print(hero.is_alive())
+    #print(hero.is_alive())
     hero.take_damage(15000)
-    print(hero.is_alive())
+    #print(hero.is_alive())
+
+    hero1 = Hero("Wonder Woman")
+    hero2 = Hero("Dumbledore")
+    ability1 = Ability("Super Speed", 300)
+    ability2 = Ability("Super Eyes", 130)
+    ability3 = Ability("Wizard Wand", 80)
+    ability4 = Ability("Wizard Beard", 20)
+    hero1.add_ability(ability1)
+    hero1.add_ability(ability2)
+    hero2.add_ability(ability3)
+    hero2.add_ability(ability4)
+    hero1.fight(hero2)
 
     
