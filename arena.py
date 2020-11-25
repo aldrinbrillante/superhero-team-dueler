@@ -35,7 +35,10 @@ class Arena:
         # Prompt the user for the number of Heroes on team two
         # call self.create_hero() for every hero that the user wants to add to team two.
         # Add the created hero to team two.
-        pass
+        numOfTeamMembers = int(input("How many members would you like on Team One?\n"))
+        for i in range(numOfTeamMembers):
+            hero = self.create_hero()
+            self.team_two.add_hero(hero)
 
 
     def create_ability(self):
@@ -86,3 +89,11 @@ class Arena:
         name = input("What is your weapon's name?  ")
         max_damage = int(input("What is the max damage of your weapon? "))
         return Weapon(name, max_damage)
+
+
+    def team_battle(self):
+        '''Battle team_one and team_two together.'''
+        # TODO: This method should battle the teams together.
+        # Call the attack method that exists in your team objects
+        # for that battle functionality.
+        self.team_one.attack(self.team_two)
